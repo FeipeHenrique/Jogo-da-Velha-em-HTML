@@ -67,6 +67,7 @@ function verificar() {
 
     jogador_atual = jogador_atual === 'X' ? 'O' : 'X';
     jogador_elemento.textContent = jogador_atual;
+    atualizar_tema();
 }
 
 function reiniciar() {
@@ -82,6 +83,18 @@ function reiniciar() {
     });
 }
 
+function atualizar_tema() {
+    document.body.classList.remove('jogador-x', 'jogador-o');
+
+    if (jogador_atual === 'X') {
+        document.body.classList.add('jogador-x')
+    }
+    else {
+        document.body.classList.add('jogador-o');
+    }
+} 
+
 reset.addEventListener('click', reiniciar);
 
 jogador_elemento.textContent = jogador_atual;
+atualizar_tema()
